@@ -14,10 +14,10 @@ If Nudge is silent, things are normal. If Nudge speaks, pay attention.
 
 ## What it does
 
-- polls the macOS pasteboard for access changes
-- tracks which app is frontmost when clipboard activity occurs
-- maintains an allowlist of expected apps (Terminal, VS Code, browsers)
-- shows a soft, brief popup when a non-allowlisted app accesses the clipboard
+- polls the macOS pasteboard for clipboard changes (not reads -- macOS does not expose reads)
+- checks which app is frontmost at the moment the clipboard changes
+- compares that app against an allowlist of expected apps (Terminal, VS Code, browsers)
+- shows a brief floating popup when a non-allowlisted app changes the clipboard
 - lives in the menu bar, stays out of the way
 
 ## What it does not do
