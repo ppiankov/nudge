@@ -231,10 +231,10 @@ struct SettingsView: View {
                                 .font(.system(size: 11, design: .monospaced))
                                 .lineLimit(1)
                             Spacer()
-                            Button(action: {
+                            Button {
                                 monitor.config.allowlist.removeAll { $0 == bundleID }
                                 monitor.saveConfig()
-                            }) {
+                            } label: {
                                 Image(systemName: "minus.circle")
                                     .font(.system(size: 11))
                                     .foregroundColor(.red.opacity(0.7))
