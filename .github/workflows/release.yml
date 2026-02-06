@@ -1,0 +1,28 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  build:
+    runs-on: macos-14
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Build release
+        run: make release
+
+      - name: Create app bundle
+        run: make app
+
+      - name: Create DMG
+        run: make dmg
+
+      - name: Upload release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: build/Nudge.dmg
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
